@@ -1,13 +1,45 @@
 @use '../utilities/' as *;
-  /*
-  // Centering Block
 
-  // max-width: 1000px;
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 0 rem(20);
 
-  // margin: 0 auto;
-  margin-inline: auto;
+  background-image: url('/images/bg-pattern-top-mobile.svg'),
+    url('/images/bg-pattern-bottom-mobile.svg');
+  background-size: contain;
+  background-repeat: no-repeat, no-repeat;
+  background-position: top left, bottom right;
 
-  // padding-left: 20px;
-  // padding-right: 20px;
-  width: min(100% - u.rem(40), u.rem(1000));
-  */
+  @include breakpoint-up(medium) {
+    background-image: url('/images/bg-pattern-top-desktop.svg'),
+      url('/images/bg-pattern-bottom-desktop.svg');
+    background-position: -213%, 142%;
+  }
+}
+
+main {
+  margin: rem(77) 0;
+  max-width: rem(500);
+
+  @include breakpoint-up(medium) {
+    max-width: rem(700);
+  }
+
+  @include breakpoint-up(large) {
+    margin: 0;
+    max-width: rem(1100);
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: rem(16);
+
+  @include breakpoint-up(large) {
+    flex-direction: row;
+    height: 40vh;
+  }
+}
